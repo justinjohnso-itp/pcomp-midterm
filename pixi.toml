@@ -1,0 +1,11 @@
+[project]
+authors = ["Justin <justin@jjohnson.io>"]
+channels = ["conda-forge"]
+description = "Add a short description here"
+name = "pcomp-midterm-code"
+platforms = ["osx-arm64"]
+version = "0.1.0"
+
+[tasks]
+
+[dependencies]
