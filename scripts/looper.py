@@ -19,9 +19,9 @@ mixer.init()
 
 # set audio files
 in_style = {
-    'acapella': mixer.Sound('audio/masego-in-style/in_style-acapella.ogg'),
-    'melody': mixer.Sound('audio/masego-in-style/in_style-melody.ogg'),
-    'beat': mixer.Sound('audio/masego-in-style/in_style-beat.ogg')
+    'acapella': mixer.Sound('../audio/masego-in-style/in_style-acapella.ogg'),
+    'melody': mixer.Sound('../audio/masego-in-style/in_style-melody.ogg'),
+    'beat': mixer.Sound('../audio/masego-in-style/in_style-beat.ogg')
     }
 
 in_style['acapella'].set_volume(0)
