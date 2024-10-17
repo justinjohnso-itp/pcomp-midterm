@@ -7,4 +7,5 @@ GPIO.setup(11, GPIO.IN) # pin 11 input
 GPIO.setup(13, GPIO.IN) # pin 13 input
 GPIO.setup(15, GPIO.IN) # pin 15 input
 
-print(GPIO.input(11))
+while True:
+  print(GPIO.input(11))
