@@ -3,9 +3,13 @@ import RPi.GPIO as GPIO
 from time import sleep
 
 GPIO.setmode(GPIO.BOARD)
+GPIO.setup(3, GPIO.IN) # pin 3 input
+GPIO.setup(5, GPIO.IN) # pin 5 input
+GPIO.setup(7, GPIO.IN) # pin 7 input
 GPIO.setup(11, GPIO.IN) # pin 11 input
 GPIO.setup(13, GPIO.IN) # pin 13 input
 GPIO.setup(15, GPIO.IN) # pin 15 input
+GPIO.setup(19, GPIO.IN) # pin 19 input
 
 # import and set up pygame audio
 from pygame import mixer
@@ -23,9 +27,9 @@ beat.set_volume(1)
 
 # init audio files
 in_style = {
-    'acapella': mixer.Sound('../audio/masego-in-style/in_style-acapella.ogg'),
-    'melody': mixer.Sound('../audio/masego-in-style/in_style-melody.ogg'),
-    'beat': mixer.Sound('../audio/masego-in-style/in_style-beat.ogg')
+    'acapella': mixer.Sound('./audio/masego-in-style/in_style-acapella.ogg'),
+    'melody': mixer.Sound('./audio/masego-in-style/in_style-melody.ogg'),
+    'beat': mixer.Sound('./audio/masego-in-style/in_style-beat.ogg')
     }
 
 acapella.play(in_style['acapella'], -1)
