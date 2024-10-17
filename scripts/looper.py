@@ -12,24 +12,25 @@ from pygame import mixer
 mixer.pre_init(44100, -16, 2, 2048)
 mixer.init()
 
-# set audio channels
-# acapella = mixer.Channel(0)
-# melody = mixer.Channel(1)
-# beat = mixer.Channel(2)
+# init audio channels
+acapella = mixer.Channel(0)
+melody = mixer.Channel(1)
+beat = mixer.Channel(2)
 
-# set audio files
+acapella.set_volume(1)
+melody.set_volume(1)
+beat.set_volume(1)
+
+# init audio files
 in_style = {
     'acapella': mixer.Sound('../audio/masego-in-style/in_style-acapella.ogg'),
     'melody': mixer.Sound('../audio/masego-in-style/in_style-melody.ogg'),
     'beat': mixer.Sound('../audio/masego-in-style/in_style-beat.ogg')
     }
 
-in_style['acapella'].set_volume(0)
-in_style['acapella'].play(-1)
-in_style['melody'].set_volume(0)
-in_style['melody'].play(-1)
-in_style['beat'].set_volume(0)
-in_style['beat'].play(-1)
+acapella.play(in_style['acapella'], -1)
+melody.play(in_style['melody'], -1)
+beat.play(in_style['beat'], -1)
 
 try:
     while True: # program loop
@@ -45,12 +46,12 @@ try:
             in_style['acapella'].set_volume(0)
             
         if pin_13:
-            in_style['melody'].set_volume(1)
+            in_style['melody'].set_volume(.75)
         else:
             in_style['melody'].set_volume(0)
         
         if pin_15:
-            in_style['beat'].set_volume(1)
+            in_style['beat'].set_volume(.75)
         else:
             in_style['beat'].set_volume(0)
         
