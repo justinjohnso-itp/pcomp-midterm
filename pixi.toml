@@ -3,9 +3,18 @@ authors = ["Justin <justin@jjohnson.io>"]
 channels = ["conda-forge"]
 description = "Add a short description here"
 name = "pcomp-midterm-code"
-platforms = ["osx-arm64"]
+platforms = ["linux-aarch64"]
 version = "0.1.0"
 
 [tasks]
+looper = "python scripts/looper.py"
 
 [dependencies]
+python = ">=3.13.0,<4"
+
+[pypi-dependencies]
+rpi-ws281x = ">=5.0.0, <6"
+adafruit-circuitpython-neopixel = ">=6.3.12, <7"
+adafruit-blinka = ">=8.49.0, <9"
+rpi-gpio = ">=0.7.1, <0.8"
+pygame = ">=2.6.1, <3"
