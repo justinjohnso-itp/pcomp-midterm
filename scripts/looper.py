@@ -25,40 +25,34 @@ in_style = {
     }
 
 in_style['acapella'].set_volume(0)
+in_style['acapella'].play(-1)
 in_style['melody'].set_volume(0)
+in_style['melody'].play(-1)
 in_style['beat'].set_volume(0)
+in_style['beat'].play(-1)
 
 try:
     while True: # program loop
-        in_style['acapella'].play()
-        in_style['melody'].play()
-        in_style['beat'].play()
-        if GPIO.input(11):
-            if in_style['acapella'].get_volume() > 0:
-                in_style['acapella'].set_volume(0)
-            else: 
-                in_style['acapella'].set_volume(0.5)
-            sleep(0.2)
-        elif GPIO.input(13):
-            if in_style['melody'].get_volume() > 0:
-                in_style['melody'].set_volume(0)
-            else: 
-                in_style['melody'].set_volume(0.5)
-            sleep(0.2)
-        elif GPIO.input(15):
-            if in_style['beat'].get_volume() > 0:
-                in_style['beat'].set_volume(0)
-            else: 
-                in_style['beat'].set_volume(0.5)
-            sleep(0.2)
+        # set default state for each pin to 0
+        pin_11 = not GPIO.input(11)
+        pin_13 = not GPIO.input(13)
+        pin_15 = not GPIO.input(15)
+        
+        # play music on sensor returning 1
+        if pin_11:
+            in_style['acapella'].set_volume(1)
+        else:
+            in_style['acapella'].set_volume(0)
+            
+        if pin_13:
+            in_style['melody'].set_volume(1)
+        else:
+            in_style['melody'].set_volume(0)
+        
+        if pin_15:
+            in_style['beat'].set_volume(1)
+        else:
+            in_style['beat'].set_volume(0)
         
 finally:
     GPIO.cleanup()
-
-# def play_masego():
-#     masego.play()
-#     print('Playing Masego!!')
-
-# while True:
-#     inpt = input('Press enter to play:')
-#     play_masego()
