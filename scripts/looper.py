@@ -39,22 +39,22 @@ beat.play(in_style['beat'], -1)
 try:
     while True: # program loop
         # set default state for each pin to 0
-        pin_11 = not GPIO.input(11)
-        pin_13 = not GPIO.input(13)
-        pin_15 = not GPIO.input(15)
+        region_1 = not GPIO.input(7)
+        region_2 = not GPIO.input(11)
+        region_3 = not GPIO.input(13)
         
         # play music on sensor returning 1
-        if pin_11:
+        if region_1:
             in_style['acapella'].set_volume(1)
         else:
             in_style['acapella'].set_volume(0)
             
-        if pin_13:
+        if region_2:
             in_style['melody'].set_volume(.75)
         else:
             in_style['melody'].set_volume(0)
         
-        if pin_15:
+        if region_3:
             in_style['beat'].set_volume(.75)
         else:
             in_style['beat'].set_volume(0)
