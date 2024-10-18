@@ -1,0 +1,16 @@
+[project]
+authors = ["Justin <jj4123@nyu.edu>"]
+channels = ["conda-forge"]
+description = "Add a short description here"
+name = "pcomp-midterm"
+platforms = ["linux-aarch64"]
+version = "0.1.0"
+
+[tasks]
+
+[dependencies]
+python = ">=3.13.0,<4"
+
+[pypi-dependencies]
+rpi-ws281x = ">=5.0.0, <6"
+adafruit-circuitpython-neopixel = ">=6.3.12, <7"
