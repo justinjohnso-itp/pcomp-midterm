@@ -3,13 +3,13 @@ import RPi.GPIO as GPIO
 from time import sleep
 
 GPIO.setmode(GPIO.BOARD)
-GPIO.setup(3, GPIO.IN) # pin 3 input
-GPIO.setup(5, GPIO.IN) # pin 5 input
 GPIO.setup(7, GPIO.IN) # pin 7 input
 GPIO.setup(11, GPIO.IN) # pin 11 input
 GPIO.setup(13, GPIO.IN) # pin 13 input
 GPIO.setup(15, GPIO.IN) # pin 15 input
-GPIO.setup(19, GPIO.IN) # pin 19 input
+GPIO.setup(16, GPIO.IN) # pin 16 input
+GPIO.setup(18, GPIO.IN) # pin 18 input
+GPIO.setup(22, GPIO.IN) # pin 22 input
 
 # import and set up pygame audio
 from pygame import mixer
