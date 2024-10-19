@@ -31,6 +31,7 @@ environments:
       - pypi: https://files.pythonhosted.org/packages/1c/12/8065baaa0c7689fa3390beef0ad46ac6c52bfcc1b27b05fe093c0fa29599/Adafruit_Blinka-8.49.0-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/65/6b/ff879c60764b15bbd9617c5660a6816ab598f958d572a15f067123d9007e/adafruit_circuitpython_busdevice-5.2.10-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/1d/35/e5b8bc2169ff11f2d2b732dc7eca28d48b0b8bb427bc8d40a763499d23f7/adafruit_circuitpython_connectionmanager-3.1.2-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/6e/62/ad390281da0e424a9d8e1930c5a80e0fa489de943bb44506594827de2084/adafruit_circuitpython_led_animation-2.9.3-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/a3/12/12d5f2260a52f666860299bc5a5b2848d2e0a40b3d4a0aacb962085df475/adafruit_circuitpython_neopixel-6.3.12-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/c5/fe/3106478bc0518449581288e2effd3cb2018f103150a33370e3c0681bcb42/adafruit_circuitpython_pixelbuf-2.0.6-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/6e/d0/f6ec3f989c9753a390c360f77d1d83e768af0aff7d1fc64f26b93949b30e/adafruit_circuitpython_requests-4.1.8-py3-none-any.whl
@@ -91,6 +92,13 @@ packages:
   version: 3.1.2
   url: https://files.pythonhosted.org/packages/1d/35/e5b8bc2169ff11f2d2b732dc7eca28d48b0b8bb427bc8d40a763499d23f7/adafruit_circuitpython_connectionmanager-3.1.2-py3-none-any.whl
   sha256: 1d3af302e587d4ab0827f4382d2eeb400a152688a2eb14272189f971d7ff477b
+  requires_dist:
+  - adafruit-blinka
+- kind: pypi
+  name: adafruit-circuitpython-led-animation
+  version: 2.9.3
+  url: https://files.pythonhosted.org/packages/6e/62/ad390281da0e424a9d8e1930c5a80e0fa489de943bb44506594827de2084/adafruit_circuitpython_led_animation-2.9.3-py3-none-any.whl
+  sha256: 93703cc42d3bc4167df3b87e119a1fa0d4f38876b8efd35136615754d99c2c3a
   requires_dist:
   - adafruit-blinka
 - kind: pypi
