@@ -113,13 +113,13 @@ colors = [BLUE, RED, GREEN, PURPLE, ORANGE, AMBER, AQUA, JADE, MAGENTA]
 
 animations = AnimationSequence(
     AnimationGroup(
-        Comet(star_1, speed=0.05, color=BLUE, tail_length=10),
-        Comet(star_2, speed=0.05, color=BLUE, tail_length=10),
-        Comet(star_3, speed=0.05, color=AMBER, tail_length=10),
-        Comet(star_4, speed=0.05, color=AMBER, tail_length=10),
-        Comet(star_5, speed=0.05, color=AMBER, tail_length=10),
-        Comet(star_6, speed=0.05, color=RED, tail_length=10),
-        Comet(star_7, speed=0.05, color=RED, tail_length=10)
+        Comet(star_1, speed=0.1045, color=BLUE, tail_length=13),
+        Comet(star_2, speed=0.1045, color=BLUE, tail_length=13),
+        Comet(star_3, speed=0.1045, color=AMBER, tail_length=13),
+        Comet(star_4, speed=0.1045, color=AMBER, tail_length=13),
+        Comet(star_5, speed=0.1045, color=AMBER, tail_length=13),
+        Comet(star_6, speed=0.1045, color=RED, tail_length=13),
+        Comet(star_7, speed=0.1045, color=RED, tail_length=13)
     )
 )
 
@@ -143,7 +143,7 @@ try:
         # play music on sensor returning 1
         if region_1:
             # print('r1')
-            monalisa['melody'].set_volume(.75)
+            monalisa['melody'].set_volume(.85)
         else:
             monalisa['melody'].set_volume(0)
             
