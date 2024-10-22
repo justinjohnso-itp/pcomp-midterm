@@ -27,15 +27,32 @@ melody.set_volume(1)
 beat.set_volume(1)
 
 # init audio files
-in_style = {
-    'acapella': mixer.Sound('./audio/masego-in-style/in_style-acapella.ogg'),
-    'melody': mixer.Sound('./audio/masego-in-style/in_style-melody.ogg'),
-    'beat': mixer.Sound('./audio/masego-in-style/in_style-beat.ogg')
+# in_style = {
+#     'acapella': mixer.Sound('./audio/masego-in-style/in_style-acapella.ogg'),
+#     'melody': mixer.Sound('./audio/masego-in-style/in_style-melody.ogg'),
+#     'beat': mixer.Sound('./audio/masego-in-style/in_style-beat.ogg')
+#     }
+griz = {
+    'acapella': mixer.Sound('./audio/griz-acapella.ogg'),
+    'melody': mixer.Sound('./audio/griz-melody.ogg'),
+    'beat': mixer.Sound('./audio/griz-beat.ogg')
     }
 
-acapella.play(in_style['acapella'], -1)
-melody.play(in_style['melody'], -1)
-beat.play(in_style['beat'], -1)
+jazz = {
+    'acapella': mixer.Sound('./audio/jazz-acapella.ogg'),
+    'melody': mixer.Sound('./audio/jazz-melody.ogg'),
+    'beat': mixer.Sound('./audio/jazz-beat.ogg')
+    }
+
+rain_dance = mixer.Sound('./audio/rain_dance-instrumental.ogg')
+
+acapella.play(griz['acapella'], -1)
+melody.play(griz['melody'], -1)
+beat.play(griz['beat'], -1)
+acapella.play(jazz['acapella'], -1)
+melody.play(jazz['melody'], -1)
+beat.play(jazz['beat'], -1)
+melody.play(rain_dance, -1)
 
 # LIGHTING
 import board
@@ -109,29 +126,46 @@ try:
         region_1 = not GPIO.input(4)
         region_2 = not GPIO.input(17)
         region_3 = not GPIO.input(27)
+        region_4 = not GPIO.input(22)
+        region_5 = not GPIO.input(23)
+        region_6 = not GPIO.input(24)
+        region_7 = not GPIO.input(25)
         
         # play music on sensor returning 1
         if region_1:
-            # play_animation(star_1)
-            # status = 'playing'
-            in_style['acapella'].set_volume(1)
+            griz['acapella'].set_volume(1)
         else:
-            # idle_animation(star_1)
-            in_style['acapella'].set_volume(0)
+            griz['acapella'].set_volume(0)
             
         if region_2:
-            # play_animation(star_2)
-            in_style['melody'].set_volume(.75)
+            griz['melody'].set_volume(.75)
         else:
-            # idle_animation(star_2)
-            in_style['melody'].set_volume(0)
+            griz['melody'].set_volume(0)
         
         if region_3:
-            # play_animation(star_3)
-            in_style['beat'].set_volume(.75)
+            griz['beat'].set_volume(.75)
         else:
-            # idle_animation(star_3)
-            in_style['beat'].set_volume(0)
+            griz['beat'].set_volume(0)
+            
+        if region_4:
+            jazz['acapella'].set_volume(1)
+        else:
+            jazz['acapella'].set_volume(0)
+            
+        if region_5:
+            jazz['melody'].set_volume(.75)
+        else:
+            jazz['melody'].set_volume(0)
+        
+        if region_6:
+            jazz['beat'].set_volume(.75)
+        else:
+            jazz['beat'].set_volume(0)
+            
+        if region_7:
+            rain_dance.set_volume(.75)
+        else:
+            rain_dance.set_volume(0) 
         
 finally:
     GPIO.cleanup()
