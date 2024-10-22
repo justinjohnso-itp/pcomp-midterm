@@ -82,14 +82,14 @@ from adafruit_led_animation.color import *
 
 pixels = neopixel.NeoPixel(board.D10, 144 + 49, brightness=1, auto_write=True)
 
-star_1 = PixelSubset(pixels, 0, 6)
-star_2 = PixelSubset(pixels, 7, 13)
-star_3 = PixelSubset(pixels, 14, 20)
-star_4 = PixelSubset(pixels, 21, 27)
-star_5 = PixelSubset(pixels, 28, 34)
-star_6 = PixelSubset(pixels, 35, 41)
-star_7 = PixelSubset(pixels, 42, 48)
-led_strip = PixelSubset(pixels, 49, 151)
+star_2 = PixelSubset(pixels, 0, 6)
+star_5 = PixelSubset(pixels, 7, 13)
+star_7 = PixelSubset(pixels, 14, 20)
+star_6 = PixelSubset(pixels, 21, 27)
+star_3 = PixelSubset(pixels, 28, 34)
+star_1 = PixelSubset(pixels, 35, 41)
+star_4 = PixelSubset(pixels, 42, 48)
+# led_strip = PixelSubset(pixels, 49, 151)
 
 # def idle_animation(target):
 #     idle = AnimationSequence(
@@ -109,19 +109,17 @@ led_strip = PixelSubset(pixels, 49, 151)
 #     while True:
 #         play.animate()
 
-colors = [BLUE, RED, GREEN, PURPLE, ORANGE, AMBER]
+colors = [BLUE, RED, GREEN, PURPLE, ORANGE, AMBER, AQUA, JADE, MAGENTA]
 
 animations = AnimationSequence(
     AnimationGroup(
-        Comet(star_1, speed=0.01, color=random.choice(colors), tail_length=10),
-        Comet(star_2, speed=0.01, color=random.choice(colors), tail_length=10),
-        Comet(star_3, speed=0.01, color=random.choice(colors), tail_length=10),
-        Comet(star_4, speed=0.01, color=random.choice(colors), tail_length=10),
-        Comet(star_5, speed=0.01, color=random.choice(colors), tail_length=10),
-        Comet(star_6, speed=0.01, color=random.choice(colors), tail_length=10),
-        Comet(star_7, speed=0.01, color=random.choice(colors), tail_length=10),
-        Comet(led_strip, speed=0.01, color=AMBER, tail_length=20),
-        sync=True,
+        Comet(star_1, speed=0.05, color=BLUE, tail_length=10),
+        Comet(star_2, speed=0.05, color=BLUE, tail_length=10),
+        Comet(star_3, speed=0.05, color=AMBER, tail_length=10),
+        Comet(star_4, speed=0.05, color=AMBER, tail_length=10),
+        Comet(star_5, speed=0.05, color=AMBER, tail_length=10),
+        Comet(star_6, speed=0.05, color=RED, tail_length=10),
+        Comet(star_7, speed=0.05, color=RED, tail_length=10)
     )
 )
 
@@ -135,12 +133,12 @@ try:
         # play_animation('idle')
         # set default state for each pin to 0
         region_1 = not GPIO.input(4)
-        region_2 = not GPIO.input(22)
+        region_2 = not GPIO.input(25)
         region_3 = not GPIO.input(24)
         region_4 = not GPIO.input(17)
         region_5 = not GPIO.input(23)
         region_6 = not GPIO.input(27)
-        region_7 = not GPIO.input(17) #25
+        region_7 = not GPIO.input(22) #25
         
         # play music on sensor returning 1
         if region_1:
@@ -163,7 +161,7 @@ try:
             
         if region_4:
             # print('r4')
-            cant_stop['acapella'].set_volume(.25)
+            cant_stop['acapella'].set_volume(.45)
             
         else:
             cant_stop['acapella'].set_volume(0)
@@ -176,13 +174,13 @@ try:
         
         if region_6:
             # print('r6')
-            monalisa['beat'].set_volume(.75)
+            monalisa['beat'].set_volume(.65)
         else:
             monalisa['beat'].set_volume(0)
             
         if region_7:
             # print('r7')
-            one_two_step['beat'].set_volume(.75)
+            one_two_step['beat'].set_volume(.55)
         else:
             one_two_step['beat'].set_volume(0) 
         
