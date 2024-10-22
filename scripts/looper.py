@@ -18,13 +18,13 @@ mixer.pre_init(44100, -16, 2, 2048)
 mixer.init()
 
 # init audio channels
-acapella = mixer.Channel(0)
-melody = mixer.Channel(1)
-beat = mixer.Channel(2)
+# acapella = mixer.Channel(0)
+# melody = mixer.Channel(1)
+# beat = mixer.Channel(2)
 
-acapella.set_volume(1)
-melody.set_volume(1)
-beat.set_volume(1)
+# acapella.set_volume(1)
+# melody.set_volume(1)
+# beat.set_volume(1)
 
 # init audio files
 # in_style = {
@@ -32,27 +32,38 @@ beat.set_volume(1)
 #     'melody': mixer.Sound('./audio/masego-in-style/in_style-melody.ogg'),
 #     'beat': mixer.Sound('./audio/masego-in-style/in_style-beat.ogg')
 #     }
-griz = {
-    'acapella': mixer.Sound('./audio/griz-acapella.ogg'),
-    'melody': mixer.Sound('./audio/griz-melody.ogg'),
-    'beat': mixer.Sound('./audio/griz-beat.ogg')
+monalisa = {
+    'acapella': mixer.Sound('./audio/monalisa-acapella.ogg'),
+    'melody': mixer.Sound('./audio/monalisa-melody.ogg'),
+    'beat': mixer.Sound('./audio/monalisa-beat.ogg')
     }
 
-jazz = {
-    'acapella': mixer.Sound('./audio/jazz-acapella.ogg'),
-    'melody': mixer.Sound('./audio/jazz-melody.ogg'),
-    'beat': mixer.Sound('./audio/jazz-beat.ogg')
+one_two_step = {
+    'acapella': mixer.Sound('./audio/one_two_step-acapella.ogg'),
+    'melody': mixer.Sound('./audio/one_two_step-melody.ogg'),
+    'beat': mixer.Sound('./audio/one_two_step-beat.ogg')
     }
 
-rain_dance = mixer.Sound('./audio/rain_dance-instrumental.ogg')
+cant_stop = {
+    'acapella': mixer.Sound('./audio/cant_stop-acapella.ogg')
+    }
 
-acapella.play(griz['acapella'], -1)
-melody.play(griz['melody'], -1)
-beat.play(griz['beat'], -1)
-acapella.play(jazz['acapella'], -1)
-melody.play(jazz['melody'], -1)
-beat.play(jazz['beat'], -1)
-melody.play(rain_dance, -1)
+# acapella.play(griz['acapella'], -1)
+# melody.play(griz['melody'], -1)
+# beat.play(griz['beat'], -1)
+# acapella.play(one_two_step['acapella'], -1)
+# melody.play(one_two_step['melody'], -1)
+# beat.play(one_two_step['beat'], -1)
+# melody.play(rain_dance, -1)
+
+monalisa['acapella'].play(-1)
+monalisa['melody'].play(-1)
+monalisa['beat'].play(-1)
+one_two_step['acapella'].play(-1)
+one_two_step['melody'].play(-1)
+one_two_step['beat'].play(-1)
+cant_stop['acapella'].play(-1)
+
 
 # LIGHTING
 import board
@@ -133,39 +144,46 @@ try:
         
         # play music on sensor returning 1
         if region_1:
-            griz['acapella'].set_volume(1)
+            # print('r1')
+            monalisa['acapella'].set_volume(.65)
         else:
-            griz['acapella'].set_volume(0)
+            monalisa['acapella'].set_volume(0)
             
         if region_2:
-            griz['melody'].set_volume(.75)
+            # print('r3')
+            monalisa['melody'].set_volume(1)
         else:
-            griz['melody'].set_volume(0)
+            monalisa['melody'].set_volume(0)
         
         if region_3:
-            griz['beat'].set_volume(.75)
+            # print('r3')
+            monalisa['beat'].set_volume(1)
         else:
-            griz['beat'].set_volume(0)
+            monalisa['beat'].set_volume(0)
             
         if region_4:
-            jazz['acapella'].set_volume(1)
+            # print('r4')
+            one_two_step['acapella'].set_volume(.75)
         else:
-            jazz['acapella'].set_volume(0)
+            one_two_step['acapella'].set_volume(0)
             
         if region_5:
-            jazz['melody'].set_volume(.75)
+            # print('r5')
+            one_two_step['melody'].set_volume(.75)
         else:
-            jazz['melody'].set_volume(0)
+            one_two_step['melody'].set_volume(0)
         
         if region_6:
-            jazz['beat'].set_volume(.75)
+            # print('r6')
+            one_two_step['beat'].set_volume(1)
         else:
-            jazz['beat'].set_volume(0)
+            one_two_step['beat'].set_volume(0)
             
         if region_7:
-            rain_dance.set_volume(.75)
+            # print('r7')
+            cant_stop['acapella'].set_volume(.6)
         else:
-            rain_dance.set_volume(0) 
+            cant_stop['acapella'].set_volume(0) 
         
 finally:
     GPIO.cleanup()
