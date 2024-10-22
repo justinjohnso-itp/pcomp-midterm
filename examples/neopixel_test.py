@@ -27,13 +27,13 @@ led_strip = PixelSubset(pixels, 49, 151)
 
 animations = AnimationSequence(
     AnimationGroup(
-        Pulse(star_1, speed=0.05, color=PURPLE, period=2),
-        Pulse(star_2, speed=0.05, color=PURPLE, period=2),
-        Pulse(star_3, speed=0.05, color=PURPLE, period=2),
-        Pulse(star_4, speed=0.05, color=PURPLE, period=2),
-        Pulse(star_5, speed=0.05, color=PURPLE, period=2),
-        Pulse(star_6, speed=0.05, color=PURPLE, period=2),
-        Pulse(star_7, speed=0.05, color=PURPLE, period=2),
+        Pulse(star_1, speed=0.05, color=PURPLE, period=1),
+        Pulse(star_2, speed=0.05, color=RED, period=2),
+        Pulse(star_3, speed=0.05, color=PURPLE, period=1),
+        Pulse(star_4, speed=0.05, color=RED, period=2),
+        Pulse(star_5, speed=0.05, color=PURPLE, period=1),
+        Pulse(star_6, speed=0.05, color=RED, period=2),
+        Pulse(star_7, speed=0.05, color=PURPLE, period=1),
         Comet(led_strip, speed=0.01, color=AMBER, tail_length=20),
         sync=True,
     )
