@@ -135,55 +135,56 @@ try:
         # play_animation('idle')
         # set default state for each pin to 0
         region_1 = not GPIO.input(4)
-        region_2 = not GPIO.input(17)
-        region_3 = not GPIO.input(27)
-        region_4 = not GPIO.input(22)
+        region_2 = not GPIO.input(22)
+        region_3 = not GPIO.input(24)
+        region_4 = not GPIO.input(17)
         region_5 = not GPIO.input(23)
-        region_6 = not GPIO.input(24)
-        region_7 = not GPIO.input(25)
+        region_6 = not GPIO.input(27)
+        region_7 = not GPIO.input(17) #25
         
         # play music on sensor returning 1
         if region_1:
             # print('r1')
-            monalisa['acapella'].set_volume(.65)
+            monalisa['melody'].set_volume(.75)
         else:
-            monalisa['acapella'].set_volume(0)
+            monalisa['melody'].set_volume(0)
             
         if region_2:
             # print('r3')
-            monalisa['melody'].set_volume(1)
-        else:
-            monalisa['melody'].set_volume(0)
-        
-        if region_3:
-            # print('r3')
-            monalisa['beat'].set_volume(1)
-        else:
-            monalisa['beat'].set_volume(0)
-            
-        if region_4:
-            # print('r4')
-            one_two_step['acapella'].set_volume(.75)
-        else:
-            one_two_step['acapella'].set_volume(0)
-            
-        if region_5:
-            # print('r5')
-            one_two_step['melody'].set_volume(.75)
+            one_two_step['melody'].set_volume(1)
         else:
             one_two_step['melody'].set_volume(0)
         
+        if region_3:
+            # print('r3')
+            monalisa['acapella'].set_volume(.25)
+        else:
+            monalisa['acapella'].set_volume(0)
+            
+        if region_4:
+            # print('r4')
+            cant_stop['acapella'].set_volume(.25)
+            
+        else:
+            cant_stop['acapella'].set_volume(0)
+            
+        if region_5:
+            # print('r5')
+            one_two_step['acapella'].set_volume(.75)
+        else:
+            one_two_step['acapella'].set_volume(0)
+        
         if region_6:
             # print('r6')
-            one_two_step['beat'].set_volume(1)
+            monalisa['beat'].set_volume(.75)
         else:
-            one_two_step['beat'].set_volume(0)
+            monalisa['beat'].set_volume(0)
             
         if region_7:
             # print('r7')
-            cant_stop['acapella'].set_volume(.6)
+            one_two_step['beat'].set_volume(.75)
         else:
-            cant_stop['acapella'].set_volume(0) 
+            one_two_step['beat'].set_volume(0) 
         
 finally:
     GPIO.cleanup()
